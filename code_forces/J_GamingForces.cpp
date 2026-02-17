@@ -17,8 +17,8 @@ int main()
         one++;
       }
     }
-    int kill_one = (one / 2) + (one % 2);
-    cout << (n - one) + kill_one << "\n";
+    int kill = (one / 2) + (one % 2);
+    cout << (n - one) + kill << "\n";
   }
 
   return 0;
