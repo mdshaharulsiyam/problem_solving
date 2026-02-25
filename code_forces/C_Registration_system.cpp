@@ -8,7 +8,6 @@ int main()
 
   unordered_map<string, int> mp;
   mp.reserve(n);
-  mp.max_load_factor(0.7);
 
   while (n--)
   {
@@ -23,8 +22,13 @@ int main()
     else
     {
       int num = mp[name];
-      string newName = name + to_string(num);
+
+      stringstream ss;
+      ss << name << num;
+      string newName = ss.str();
+
       cout << newName << "\n";
+
       mp[name]++;
       mp[newName] = 1;
     }

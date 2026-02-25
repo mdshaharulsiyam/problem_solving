@@ -23,7 +23,7 @@ int main()
     }
   }
 
-  for (string &name : result)
+  for (string name : result)
   {
     cout << name << "\n";
   }
