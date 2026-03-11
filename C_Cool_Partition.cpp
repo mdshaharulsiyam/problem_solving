@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -14,33 +13,82 @@ int main()
   {
     int n;
     cin >> n;
-    map<int, int> m;
-    int count = 0;
+
+    int count = 1;
+    map<int, int> m1;
+    map<int, int> m2;
+
     for (int i = 1; i <= n; i++)
     {
       int x;
       cin >> x;
-      if (m.count(x))
+
+      if (i == 1)
       {
-        int val = m[x] + 1;
-        if (val > count)
-        {
-          count = val;
-        }
-        m[x] = val;
+        m1[x] = 1;
+        m2[x] = 1;
       }
       else
       {
-        m[x] = 1;
-        if (count < 1)
+        if (m1.count(x))
         {
-          count = 1;
+          m1.erase(x);
+        }
+
+        if (!m2.count(x))
+        {
+          m2[x] = 1;
+        }
+        if (m1.empty())
+        {
+          count++;
+          m1 = m2;
+          m2.clear();
         }
       }
     }
     cout << count << "\n";
   }
 }
+
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//   ios::sync_with_stdio(false);
+//   cin.tie(nullptr);
+
+//   int t;
+//   cin >> t;
+
+//   while (t--)
+//   {
+//     int n;
+//     cin >> n;
+//     int first = 0;
+//     bool first_found = false;
+//     int count = 1;
+//     for (int i = 1; i <= n; i++)
+//     {
+//       int x;
+//       cin >> x;
+//       if (i == 1)
+//         first = x;
+
+//       else
+//       {
+//         if (first == x)
+//           first_found = true;
+//       }
+//       if (first_found == true)
+//       {
+//         count++;
+//         first_found = false;
+//       }
+//     }
+//     cout << count << "\n";
+//   }
+// }
 
 // #include <bits/stdc++.h>
 // using namespace std;
