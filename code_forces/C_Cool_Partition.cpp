@@ -13,11 +13,9 @@ int main()
   {
     int n;
     cin >> n;
-
     int count = 1;
     map<int, int> m1;
     map<int, int> m2;
-
     for (int i = 1; i <= n; i++)
     {
       int x;
