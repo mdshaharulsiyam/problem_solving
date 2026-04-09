@@ -1,29 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 int main()
 {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
   int t;
   cin >> t;
+
   while (t--)
   {
     int n;
     cin >> n;
-    int arr[n];
+
+    vector<int> a(n);
+    int mx = 0;
+
     for (int i = 0; i < n; i++)
     {
-      int x;
-      cin >> arr[i];
+      cin >> a[i];
+      mx = max(mx, a[i]);
     }
-    int max_num = *max_element(arr, arr + n);
-    int count = 0;
+
+    int cnt = 0;
     for (int i = 0; i < n; i++)
     {
-      if (arr[i] == max_num)
-      {
-        count++;
-      }
+      if (a[i] == mx)
+        cnt++;
     }
-    cout << count << "\n";
+
+    cout << cnt << "\n";
   }
 
   return 0;
