@@ -1,30 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-
   int t;
   cin >> t;
-
   while (t--)
   {
     int n;
     cin >> n;
-
-    bool ok = false;
+    int max_val = INT_MIN;
     for (int i = 0; i < n; i++)
     {
       int x;
       cin >> x;
-      if (x == 67)
-        ok = true;
+      if (x > max_val)
+      {
+        max_val = x;
+      }
     }
-
-    cout << (ok ? "YES\n" : "NO\n");
+    long long sum = max_val * n;
+    cout << sum << "\n";
   }
-
   return 0;
 }

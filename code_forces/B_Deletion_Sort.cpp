@@ -14,16 +14,23 @@ int main()
     int n;
     cin >> n;
 
-    bool ok = false;
+    vector<int> a(n);
     for (int i = 0; i < n; i++)
+      cin >> a[i];
+
+    int mn = a[n - 1];
+    int cnt = 1;
+
+    for (int i = n - 2; i >= 0; i--)
     {
-      int x;
-      cin >> x;
-      if (x == 67)
-        ok = true;
+      if (a[i] <= mn)
+      {
+        cnt++;
+        mn = a[i];
+      }
     }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    cout << n - cnt + 1 << "\n";
   }
 
   return 0;

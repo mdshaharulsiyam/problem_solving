@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
   ios::sync_with_stdio(false);
-  cin.tie(nullptr);
+  cin.tie(NULL);
 
   int t;
   cin >> t;
@@ -14,16 +14,22 @@ int main()
     int n;
     cin >> n;
 
-    bool ok = false;
+    vector<int> a(n);
+    int ones = 0;
+
     for (int i = 0; i < n; i++)
     {
-      int x;
-      cin >> x;
-      if (x == 67)
-        ok = true;
+      cin >> a[i];
+      if (a[i] == 1)
+        ones++;
     }
 
-    cout << (ok ? "YES\n" : "NO\n");
+    int zeros = n - ones;
+
+    if (ones > zeros)
+      cout << "Alice\n";
+    else
+      cout << "Bob\n";
   }
 
   return 0;
