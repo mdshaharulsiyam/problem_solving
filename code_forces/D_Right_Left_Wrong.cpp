@@ -8,15 +8,14 @@ int main()
 
   int t;
   cin >> t;
-
   while (t--)
   {
     int n;
     cin >> n;
 
     vector<long long> a(n);
-    for (auto &x : a)
-      cin >> x;
+    for (int i = 0; i < n; i++)
+      cin >> a[i];
 
     string s;
     cin >> s;
@@ -45,8 +44,6 @@ int main()
       }
     }
 
-    cout << ans << '\n';
+    cout << ans << "\n";
   }
-
-  return 0;
 }
