@@ -29,6 +29,6 @@ int main()
         count++;
     }
 
-    cout << count << '\n';
+    cout << count << endl;
   }
 }
