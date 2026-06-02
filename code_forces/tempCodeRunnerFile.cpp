@@ -1,6 +1,4 @@
-for (auto it : m)
+   for (int i = 2; i <= n; i++)
     {
-      cout << it.first << " " << it.second << endl;
-      // if (it.second < k)
-      //   continue;
+        ans = (1ll * ans%mod * i%mod) % mod;
     }
