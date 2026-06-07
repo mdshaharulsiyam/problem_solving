@@ -1,45 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
+int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int n, k;
     cin >> n >> k;
 
-    vector<int> arr(n);
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
+    vector<long long> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
 
-    while (k--)
-    {
-        int x;
+    for (int i = 0; i < k; i++) {
+        long long x;
         cin >> x;
 
         int l = 0, r = n - 1;
         bool found = false;
 
-        while (l <= r)
-        {
+        while (l <= r) {
             int mid = l + (r - l) / 2;
 
-            if (arr[mid] == x)
-            {
+            if (a[mid] == x) {
                 found = true;
                 break;
-            }
-            else if (arr[mid] > x)
-            {
-                r = mid - 1;
-            }
-            else
-            {
+            } else if (a[mid] < x) {
                 l = mid + 1;
+            } else {
+                r = mid - 1;
             }
         }
 
