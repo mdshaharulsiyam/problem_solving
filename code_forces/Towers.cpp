@@ -1,34 +1,28 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int main()
-{
-  ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-  int n;
-  cin >> n;
+    int n;
+    cin >> n;
 
-  multiset<int> towers;
+    multiset<int> tops;
 
-  for (int i = 0; i < n; i++)
-  {
-    int k;
-    cin >> k;
+    for (int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
 
-    auto it = towers.upper_bound(k);
+        auto it = tops.upper_bound(x);
 
-    if (it != towers.end())
-    {
-      towers.erase(it);
-      towers.insert(k);
+        if (it != tops.end()) {
+            tops.erase(it);
+        }
+
+        tops.insert(x);
     }
-    else
-    {
-      towers.insert(k);
-    }
-  }
-  cout << towers.size() << endl;
-  return 0;
+
+    cout << tops.size() << '\n';
+    return 0;
 }
