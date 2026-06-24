@@ -1,51 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-  int t;
-  cin >> t;
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-  while (t--)
-  {
-    int n;
-    long long x;
-    cin >> n >> x;
+    int T;
+    cin >> T;
 
-    long long total = 0;
-    long long count = 0;
-    priority_queue<long long> v;
-    for (int i = 0; i < n; i++)
-    {
-      long long a;
-      cin >> a;
-      if (a < x)
-      {
-        v.push(a);
-      }
-      else
-      {
-        total += a - x;
-        count++;
-      }
+    while (T--) {
+        int N;
+        long long X;
+        cin >> N >> X;
+
+        vector<long long> deficit;
+        long long surplus = 0;
+        int ans = 0;
+
+        for (int i = 0; i < N; i++) {
+            long long a;
+            cin >> a;
+
+            if (a >= X) {
+                ans++;
+                surplus += (a - X);
+            } else {
+                deficit.push_back(X - a);
+            }
+        }
+
+        sort(deficit.begin(), deficit.end());
+
+        for (long long d : deficit) {
+            if (surplus >= d) {
+                surplus -= d;
+                ans++;
+            } else {
+                break;
+            }
+        }
+
+        cout << ans << '\n';
     }
-    while (!v.empty() && total > 0)
-    {
-      long long val = v.top();
-      v.pop();
-      long long need = x - val;
-      if (need > total)
-      {
-        break;
-      }
-      else
-      {
-        total -= need;
-        count++;
-      }
-    }
-    cout << count << "\n";
-  }
 
-  return 0;
+    return 0;
 }
